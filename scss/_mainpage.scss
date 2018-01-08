@@ -1,0 +1,286 @@
+
+// @font-face {
+// 	font-family: 'Prosto Sans ';
+// 	src: url('./../fonts/prosto-sans/Prosto Sans Bold.otf');
+// 	font-weight: normal;
+// 	font-style: normal;
+// }
+.preloader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: url('../images/preloader.gif') no-repeat;
+}
+
+header {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-content: stretch;
+	height: 80px;
+	max-width: 100%;
+	width: 100%;
+	font-size: 18px;
+	position: fixed;
+	top: 0;
+	margin-bottom: 80px;
+}
+
+.logo {
+	display: flex;
+	flex-flow: row nowrap;
+	background-color: #8fc31f;
+	align-items: center;
+	width: 21%;
+	position: relative;
+}
+
+.logo::after {
+	content: ''; 
+    position: absolute; /* Абсолютное позиционирование */
+    left: 100%; bottom: 0px;
+    border: 40px solid transparent;	
+    border-left: 30px solid #8fc31f;
+}
+
+
+
+
+.logo img {
+	margin-left: 45px;
+	margin-right: 5px;
+	top: 5%;
+	// height: 50%;
+}
+
+.logo h2 {
+	font-size: 22px;
+	color: #ffffff;
+	font-family: 'PT Sans';
+
+}
+
+.nav {
+	background-color: #ffffff;
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	
+}
+
+.nav-horizontal {
+	width: 100%;
+}
+
+.nav-horizontal ul{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	list-style: none;
+}
+.nav-horizontal > ul > li {
+	margin-right: 10px;
+}
+
+.nav-horizontal a {
+	text-decoration: none;
+	color: #cccccc;
+	padding: 0 3px;
+
+}
+
+.nav-horizontal .active {
+	border-left: 2px solid #8fc31f;
+	border-right: 2px solid #8fc31f;
+
+}
+
+.nav-horizontal a:hover  {
+	color: #000000;
+}
+
+.contacts {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+	background-color: #434343;
+	width: 30%;
+	position: relative;
+	color: #ffffff;
+}
+.contacts::before {
+	content: ''; 
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0%; bottom: 0px;
+    border: 40px solid transparent;	
+    border-left: 30px solid #ffffff;
+}
+.contacts img {
+	margin-right: 5px;
+}
+.contacts .mr {
+	margin-right: 15px;
+}
+
+.slider {
+	background: url(../images/background.jpg);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-family: 'PT Sans';
+	height: 100vh;
+	margin-top: 80px;
+	// overflow: hidden;
+	background-size: 100% auto;
+	width: 100%;
+}
+
+.container {
+	display: flex;
+	justify-content: space-around;
+	flex-flow: column;
+	align-items: center;
+	color: #ffffff;
+	margin: auto auto;
+	height: 550px;
+	width: 600px;
+	h2 {
+		text-transform: uppercase;
+		font-size: 24px;
+		margin: 0;
+	}
+}
+
+
+.promo {
+	margin: 0;
+	text-align: center;
+	font-size: 24px;
+}
+.border {
+	// background-color: #ffffff;
+	text-transform: uppercase;
+	// padding: 5px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+
+	display: inline-block;
+}
+.border span {
+	background: #ffffff;
+	color: #3e4040;
+	padding: 5px 5px 0px 5px;;
+}
+// .border::before,
+// .border::after {
+// 	content:'_____________';
+// 	// position: relative;
+// 	bottom: 0%;
+// 	background: none;
+// 	// color: #ffffff;
+// }
+
+
+.advantages {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	
+}
+
+.row1,
+.row2 {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.item {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: flex-start;
+	width: 50%;
+	margin-bottom: 15px;
+}
+.item img {
+	margin-right: 10px;
+}
+.item p {
+	text-align: left;
+}
+
+.quality img {
+	margin-left: 5px;
+}
+
+.link-menu {
+	background: #8fc31f;
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 3px;
+}
+.link-menu a {
+	text-decoration: none;
+	color: #ffffff;
+	text-transform: uppercase;
+}
+
+#blog {
+	background: #f7f7f7;
+	height: 400px;
+}
+
+.titleBlog {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.titleBlog h2 {
+	text-transform: uppercase;
+	color: #383838;
+	font-size: 22px;
+	margin-left: 5px;
+}
+
+.blogArticles {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+
+}
+
+.blogRow1,
+.blogRow2 {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.article {
+	width: 30%;
+	height: 35%;
+	display: block;
+	background: #ffffff;
+	position: relative;
+}
+
+
+
+
+
+
+
+
+

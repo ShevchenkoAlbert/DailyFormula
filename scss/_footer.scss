@@ -1,0 +1,65 @@
+.footer-container {
+	display: flex;
+	width: 100%;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: flex-start;
+	color: #ffffff;
+	background: #434343;
+	font-size: 18px;
+	padding-bottom: 10px;
+	margin: 0;
+}
+
+.subscribe {
+	text-align: center;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+
+}
+.subscribe h2 {
+	margin-bottom: 0;
+}
+
+.subscribe input {
+	line-height: 1.62;
+	width: 100%;
+	margin-bottom: 10px;
+	border: #fff;
+	border-radius: 2px;
+}
+
+.subscribe button {
+	background: #8fc31f;
+	line-height: 1.62;
+	width: 70%;
+	border-radius: 3px;
+	border: #8fc31f;
+	color: #fff;
+}
+
+.footer_contacts, .map {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	line-height: 1.62;
+	margin: 0;
+	color: #fff;
+	text-align: center;
+}
+
+.footer_contacts a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.links a {
+	margin-right: 5px;
+}
+
+
+.adress a {
+	text-decoration: none;
+	color: #fff;
+}
