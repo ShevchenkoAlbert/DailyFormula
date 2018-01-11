@@ -1,0 +1,174 @@
+
+<div id="menu-module" ng-controller="Menu">
+    <div class="menu-list">
+        <div ng-repeat="menu in menuList track by $index" class="menu-item" ng-click="show($index)">
+            <img ng-src="{{ menu.img }}">
+            <div class="description"> 
+                <h1 ng-model="actions[$index]">{{ menu.name }}</h1>
+                <article>{{ menu.description }}</article>
+                <button type="button" ng-click="show($index)">подробнее</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-background" ng-class="{'modal-background-enable': modalStatus}"></div>
+        <div class="modal-body" ng-class="{'modal-body-show': modalStatus}">
+            <input type="text" style="display: none" ng-model="img_src" readonly>
+            <input type="text" style="display: none" ng-model="current_name_src" readonly>
+            <button class="modal-body-close" type="button" ng-click="closeModal()">✕</button>
+            <div class="modal-body-comments" ng-class="{'modal-body-comments-active': commentsStatus}">
+                <h2>Отзывы о программе</h2>
+                <button class="close" type="button" ng-click="closeComments()">< закрыть</button>
+                <button class="post" type="button" ng-click="newPost = !newPost" ng-class="{'post-disable': newPost}">
+                    {{newPost && 'скрыть панель' || 'добавить комментарий'}}
+                </button>
+                <form class="new-comment" ng-submit="userAddPost()" ng-class="{'new-comment-active': newPost}">
+                    <input type="text" placeholder="Ваше имя" ng-model="post_user_name" required>
+                    <input type="email" placeholder="Email" ng-model="post_user_email" required>
+                    <textarea placeholder="Отзыв" ng-model="post_user_text" required></textarea>
+                    <div class="rating">
+                        <input type="radio" id="five" ng-click="setRating(5)">
+                        <label class="five" for="five" ng-class="{'active': stars[4]}" title="Отлично!">&#9733;</label>
+                    
+                        <input type="radio" id="four" ng-click="setRating(4)">
+                        <label class="four" for="four" ng-class="{'active': stars[3]}">&#9733;</label>
+                    
+                        <input type="radio" id="three" ng-click="setRating(3)">
+                        <label class="three" for="three" ng-class="{'active': stars[2]}" title="Так себе">&#9733;</label>
+                    
+                        <input type="radio" id="two" ng-click="setRating(2)">
+                        <label class="two" for="two" ng-class="{'active': stars[1]}">&#9733;</label>
+                    
+                        <input type="radio" id="one" ng-click="setRating(1)">
+                        <label class="one" for="one" ng-class="{'active': stars[0]}" title="Ужасно!">&#9733;</label>
+                    </div>
+                    <button class="submit" type="submit">отправить</button>
+                </form>
+                <ul ng-repeat="post in comments track by $index">  
+                    <li>
+                        <h4>{{ post.user }}</h4><i>{{ post.time }}</i>
+                        <article>{{ post.comment }}</article>
+                        <div class="star-rating">{{ post.rating }}</div>
+                    </li>
+                </ul>
+                <div class="emty-list-message" ng-class="{'emty-list-message-active': comments == false}">Список пуст. Добавьте свой комментарий</div>
+            </div>
+            <div class="modal-body-main">
+                <div class="modal-body-main-description">
+                    <input class="title" type="text" ng-model="title" readonly>
+                    <textarea class="description" name="des" ng-model="des" readonly></textarea>
+                    <button class="comments_show" type="button" ng-click="showComments()">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i> отзывы 
+                    </button>
+                </div>
+                <div class="modal-body-main-price">
+                    <article>
+                        <div class="price">
+                            <input type="text" ng-model="default_price" readonly>
+                            <span class="uah-per-day">ГРН <br>за день</span>
+                        </div> 
+                        <i>При заказе от 1 до 13 дней</i>
+                    </article>
+                    <article>
+                        <div class="price">
+                            <input type="text" ng-model="share14_price" readonly>
+                            <span class="uah-per-day">ГРН <br>за день</span>
+                        </div>
+                        <i>При заказе на 14 дней</i>
+                    </article>
+                    <article> 
+                        <div class="price">
+                            <input type="text" ng-model="share30_price" readonly>
+                            <span class="uah-per-day">ГРН <br> за день</span>
+                        </div>    
+                        <i>При заказе на 30 дней и более</i>
+                    </article>
+                </div>
+                <div class="modal-body-main-calc-and-submit">
+                    <h3>Выберите продолжительность программы</h3>
+                    <div class="calculator">
+                        <input class="factor" type="text" ng-model="factor" readonly><span>&nbsp; грн</span> x 
+                        <div class="counter">
+                            <span>кол-во дней</span>
+                            <input type="number" min="1" max="60" ng-model="counter" ng-change="calculatePrice()">
+                        </div> 
+                        = <input class="calc-result" type="text" ng-model="calc_price" readonly><span>&nbsp; грн</span>
+                    </div>
+                    <button type-"button" ng-click="addToBasket()">заказать</button>
+                </div>
+                <div class="modal-body-main-schedule">
+                    <h2>Примерное меню на неделю</h2>
+                    <div class="buttons">
+                        <button type="button" ng-class="{'check-day-active': currentDay == 1}" ng-click="currentDay=1">Понедельник</button>
+                        <button type="button" ng-class="{'check-day-active': currentDay == 2}" ng-click="currentDay=2">Вторник</button>
+                        <button type="button" ng-class="{'check-day-active': currentDay == 3}" ng-click="currentDay=3">Среда</button>
+                        <button type="button" ng-class="{'check-day-active': currentDay == 4}" ng-click="currentDay=4">Четверг</button>
+                        <button type="button" ng-class="{'check-day-active': currentDay == 5}" ng-click="currentDay=5">Пятница</button>
+                        <button type="button" ng-class="{'check-day-active': currentDay == 6}" ng-click="currentDay=6">Суббота</button>
+                        <button type="button" ng-class="{'check-day-active': currentDay == 7}" ng-click="currentDay=7">Воскресенье</button>
+                    </div>
+                    <article class="schemas">
+                        <textarea class="day1" name="des" ng-model="day1" 
+                        ng-class="{'current-day': currentDay == 1}" 
+                        readonly></textarea>
+                        <textarea class="day2" name="des" ng-model="day2" 
+                        ng-class="{'current-day': currentDay == 2}" 
+                        readonly></textarea>
+                        <textarea class="day3" name="des" ng-model="day3" 
+                        ng-class="{'current-day': currentDay == 3}" 
+                        readonly></textarea>
+                        <textarea class="day4" name="des" ng-model="day4" 
+                        ng-class="{'current-day': currentDay == 4}" readonly></textarea>
+                        <textarea class="day5" name="des" ng-model="day5" 
+                        ng-class="{'current-day': currentDay == 5}" readonly></textarea>
+                        <textarea class="day6" name="des" ng-model="day6" 
+                        ng-class="{'current-day': currentDay == 6}" readonly></textarea>
+                        <textarea class="day7" name="des" ng-model="day7" 
+                        ng-class="{'current-day': currentDay == 7}" readonly></textarea>  
+                    </article>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <div class="basket-btn" ng-class="{'basket-btn-active': basket.length > 0}" ng-click="openBasket()">
+       <span class="basket-btn-icon"><i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
+       <span class="basket-btn-counter">{{basket.length}}</span>
+    </div>
+    <div class="basket-back" ng-class="{'basket-back-show': basketSpread}"></div>
+    <div class="basket" ng-class="{'basket-active': basketSpread}">
+        <button class="basket-close" type="button" ng-click="closeBasket()">Х</button>
+        <ul ng-repeat="item in basket track by $index">
+            <li> 
+                <img ng-src="{{ item.img }}">
+                <article>
+                    <p>
+                        <h4>{{ item.name }}</h4>
+                        <span>Кол-во дней: {{ item.days }}</span>
+                        <span>Цена: {{ item.price }} грн/день</span>
+                    </p>
+                </article>
+                <div class="basket-item-calc">
+                    <input class="basket-item-counter" type="number" min="1" max="60" ng-model="item.counter" ng-click="updateBasketItem(item, $index, item.counter)">шт.
+                    <div class="result">{{ item.counter * item.result }} грн</div>
+                </div>
+                <button ng-click="removeBasketItem($index)">х</button>
+            </li>
+        </ul>
+        <div class="basket-panel">
+            <div class="final-sum">Всего: <input type="text" ng-model="basket_result"> грн</div>
+            <div class="confirm" ng-click="confirmRequest()">{{ basketConfirm && '✓' || 'Оформить' }}</div>
+            <div class="user-phone" ng-class="{'user-phone-active': basketConfirm}">
+                <i class="fa fa-mobile" aria-hidden="true"></i>
+                <input type="tel" ng-model="phone_user" placeholder="Введите ваш телефон">
+            </div>
+        </div>
+    </div>
+    <div class="success-confirm" ng-class="{'success-confirm-active': confirm}">Саписбо за заказ! <br> Мы перезвоним Вам в ближайшее время<i class="fa fa-check-square-o" aria-hidden="true"></i></div>
+    <div class="basket-message-back" ng-class="{'basket-message-back-active': basketMessageStatus}"></div>
+    <div class="basket-message" ng-class="{'basket-message-active': basketMessageStatus}">
+        <button class="close" type="button" ng-click="basketMessageStatus=false">Х</button>
+        <div>✓</div>
+        Ваш заказ добавлен в корзину
+        <button class="issue" type="button" ng-click="openBasket(); basketMessageStatus=false">оформить заказ</button>
+    </div>
+</div>

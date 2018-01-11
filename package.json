@@ -7,33 +7,38 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "concurrently --kill-others \"npm run server\" \"npm run dev\"",
+    "dev": "webpack-dev-server",
+    "server": "nodemon ./src/server/index.js",
     "build": "webpack"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.7",
-    "angular-animate": "^1.6.7",
-    "angular-aria": "^1.6.7",
+    "angular-animate": "^1.6.3",
+    "angular-aria": "^1.6.3",
+    "angular-input-stars": "^1.5.5",
     "angular-material": "^1.1.5",
     "angular-messages": "^1.6.7",
     "angular-route": "^1.6.7",
-    "angular-ui-bootstrap": "^2.5.6",
-    "angular-xeditable": "^0.8.1",
     "bootstrap": "^3.3.7",
-    "font-awesome": "^4.7.0"
+    "concurrently": "^3.5.1",
+    "ejs": "^2.5.7",
+    "translitit-cyrillic-russian-to-latin": "^0.1.1"
   },
   "devDependencies": {
+    "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
-    "file-loader": "^1.1.5",
-    "url-loader": "^0.6.2",
+    "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.7",
+    "file-loader": "^1.1.5",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.5"
   }

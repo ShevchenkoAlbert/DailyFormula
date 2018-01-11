@@ -1,0 +1,189 @@
+<div class="calc-container" ng-click="onClickCalculate()" ng-keyup="onClickCalculate()">
+	<div class="calc-body">
+		<div class="calc-body-inner">
+			<article class="title-calc">
+				<h2 class="title">Фитнес-калькулятор</h2>
+			</article>
+			<div class="body">
+			<form>
+					<h4 class="widget-title" for="sex">Ваш пол: </h4> 
+				<div class="form-group sex">
+					
+								<input type="radio" name="sex" value="male" ng-model="sex" id="male"> 
+								<label class="widget-label" for="male">Мужcкой</label> 
+								<input type="radio"	name="sex" value="female" ng-model="sex" id="female"> 
+								<label class="widget-label" for="female">Женский</label>
+				</div>
+				<h4 class="widget-title" for="sex">Ваша цель: </h4>
+				<div class="form-group target">
+								<input type="radio" name="target" id="weight_loss" ng-model="target" value="-0.2"><label class="widget-label" for="weight_loss">Похудение</label>
+								<input type="radio" name="target" id="mass_plus" ng-model="target" value='0.1'><label class="widget-label" for="mass_plus">Набор массы</label>
+								<input type="radio" name="target" id="normal" ng-model="target" value='0'><label class="widget-label" for="normal">Поддержание формы</label>
+				</div>
+				<h4 class="widget-title" >Введите свои индивидуальные параметры:</h4>
+				<div class="form-group params">
+					<div class="step-input ">
+						<label for="user_age">Возраст:</label>
+						<input id="user_age" type="number" class="widget-label" ng-model="age" min="10" max="100">
+					</div>
+					<div class="step-input">
+						<label for="user_grew">Рост:</label>
+						<input id="user_grew" type="number"  class="widget-label mrg" ng-model="growth" min="130" max="230" placeholder=" ">
+						<span>см</span>
+					</div>
+					<div class="step-input">
+						<label for="user_weight">Вес:</label>
+						<input id="user_weight" type="number" class="widget-label mrg" required=" 2" ng-model="weight" min="30" max="200" placeholder=" ">
+						<span>кг</span>
+					</div>
+				</div>
+				<h4 class="widget-title" for="">Уровень активности:</h4>
+					<div class="inline-activity">
+						<div class="form-group inline-activity">
+							<input type="radio" name="activity" ng-model="activity" id="a120" value='1.2'>
+							<label class="widget-label" for="a120">Сидячий образ жизни</label>
+						</div>
+						<div class="form-group inline-activity">
+							<input type="radio" name="activity" ng-model="activity" id="a137" value='1.375'>
+							<label class="widget-label active" for="a137">
+								<span>Средняя активность</span><br>
+								<small>(легкие упражнения 1-3 раз в неделю)</small>
+							</label>
+						</div>
+						<div class="form-group inline-activity">
+							<input type="radio" name="activity" ng-model="activity" id="a146" value='1.4625'>
+							<label class="widget-label active" for="a146">
+								<span>Высокая активность</span><br>
+								<small>(интенсивные упражнения 3-5 раз в неделю)</small>
+							</label>
+						</div>
+						<div class="form-group inline-activity">
+							<input type="radio" name="activity" ng-model="activity" id="a155" value='1.550'>
+							<label class="widget-label active" for="a155">
+								<span>Очень высокая активность</span><br>
+								<small>(тяжелые физические нагрузки 6-7 раз в неделю)</small>
+							</label>
+						</div>
+						<div class="form-group inline-activity">
+							<input type="radio" name="activity" ng-model="activity" id="a163" value='1.6375'>
+							<label class="widget-label active" for="a163">
+								<span>Экстремальная активность</span><br>
+								<small>(занятия интенсивным тренингом 2 раза в день)</small>
+							</label>
+						</div>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+	<div class="calc-diagramms">
+		<div class="calc-diagramms-inner">
+			<table>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<div class="graphics">
+				<div class="proteins">
+						<input type="text" ng-model="bgu_proteins" placeholder="100 грамм"></input>
+						<span id="proteins" style="height: 80px"></span>
+				</div>
+				<div class="fats">
+						<input type="text" ng-model="bgu_fats" placeholder="100 грамм"></input>
+						<span id="fats" style="height: 70px"></span>
+				</div>
+				<div class="carbohydrates">
+						<input type="text" ng-model="bgu_carbohydrates" placeholder="100 грамм"></input>
+						<span id="carbohydrates" style="height: 120px"></span>
+				</div>
+				<div class="cal">
+						<input type="text" ng-model="bgu_cal" placeholder="2000 кал"></input>
+						<span id="cal" style="height: 210px"></span>
+				</div>
+			</div>
+			<div class="bgu-des">
+				<div>белки</div>
+				<div>жиры</div>
+				<div>углеводы</div>
+				<div>калорий в день</div>
+			</div>	
+		</div>
+	</div>
+</div>

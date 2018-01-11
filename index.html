@@ -2,22 +2,20 @@
 <html lang="en" ng-app="application">
 <head>
 	<meta charset="UTF-8">
-	<title>DailyFormula</title>
-	<link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
+	<title>AngularJS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="shortcut icon" href="images/favicon1.ico" type="image/x-icon">
-	<link rel="stylesheet" href="/node_modules/angular-xeditable/dist/css/xeditable.min.css">
-	<link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body> 
+<body>
 	<div ng-controller="MainController as vm" >
-		<div ng-hide="vm.isReady" class="preloader"></div>
-		<div ng-if="vm.isReady" ng-cloak>
-			<ng-include src="'js/views/header.template.html'" ></ng-include>
-			<div ng-view></div>
-			<ng-include src="'js/views/footer.template.html'"></ng-include>
+			<div ng-hide="vm.isReady" class="preloader"></div>
+			<div ng-if="vm.isReady" ng-cloak>
+				<ng-include src="'src/views/header.template.html'"></ng-include>
+				<div ng-view></div>
+			</div>
 		</div>
-	</div>
-	<script src="/assets/bundle.js"></script>
+	<script src="public/assets/bundle.js"></script>
 </body>
 </html>

@@ -3,12 +3,11 @@ module.exports = {
    resolve: {
       extensions: [".js"],
       modules: [
-         "./js",
-         "./js/controllers",
+         "./src",
          "./node_modules"
       ]
    },
-   entry : ["./scss/main.scss", "./js/app.js"],
+   entry : ["./src/app.js"],
    output: {
       path: path.join(__dirname,'public/assets/'),
       publicPath:'assets/',
@@ -21,7 +20,7 @@ module.exports = {
             loader: "babel-loader",
             exclude: [ /node_modules/ ],
             options: {
-               presets: [ "env" ]
+               presets: [ "env", "stage-0" ]
             }
          },
          {

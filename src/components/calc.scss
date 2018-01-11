@@ -1,0 +1,207 @@
+.calc-container {
+  animation: show_menu_list 1s ease;
+  margin-top: 60px;
+  display: flex;
+  align-items: stretch;
+  height: 90vh;
+  .title-calc {
+    p {
+      font-size: 14px;
+      &::before {
+        display: inline;
+        font-family: FontAwesome;
+        content: '\f05a';
+        color: #ddd;
+        margin: 0 10px;
+        font-size: 15px;
+      }
+    }
+  }
+  form > div {
+    margin: 20px 0;
+  }
+  .calc-diagramms {
+    width: 50%;
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 30px;
+    &-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      table {
+        height: 100%;
+        width: 100%;
+        border-collapse: collapse;
+        tr td {
+          border: 1px solid #ddd;
+        }
+      }
+      .bgu-des {
+        width: 67%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        margin: auto auto;
+        height: 140px;
+        width: 120px;
+        z-index: 3;       
+        div {
+          display: inline-block;
+          padding: 3px 5px;
+          background: rgb(238, 238, 238);
+          font-family: montserrat;
+          font-size: 12px; 
+        }
+        div:nth-child(1) {
+          background: rgb(219, 219, 219);
+        }
+        div:nth-child(2) {
+          background: rgb(251, 255, 1);
+        }
+        div:nth-child(3) {
+          background: rgb(55, 231, 93);
+        }
+        div:nth-child(4) {
+          color:white;
+          background: rgb(77, 142, 185);
+       }
+      }
+      .graphics {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        border-bottom: 3px solid rgb(145, 145, 145);
+        & > div {
+          width: 16.7%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          span {
+            opacity: 0.85;
+            display: block;
+            width: 100%;
+            transition: all 0.7s ease;
+          }
+          input {
+            text-align: center;
+            border: none;
+            color: rgb(139, 139, 139);
+            font-family: Montserrat;
+            margin-bottom: 5px;
+            background: none;
+          }
+        }
+        .cal span {
+           background: rgb(77, 142, 185);
+        }
+        .proteins span {
+          background: rgb(219, 219, 219);
+        }
+        .carbohydrates span {
+          background: rgb(55, 231, 93);
+        }
+        .fats span {
+          background: rgb(251, 255, 1);
+        }
+      }
+    }
+  }
+  .calc-body {
+    .inline-activity {
+      label {
+        cursor: pointer;
+      }
+      input {
+        display: none;
+        & + label::before {
+          display: inline-block;
+          content: ' ○';
+          font-size: 17px;
+          margin: 0 5px;
+        }
+        &:checked + label::before {
+          display: inline-block;
+          font-family: FontAwesome;
+          content: '\f058';
+          font-size: 17px;
+          margin: 0 5px;
+          color: rgb(150, 206, 66);
+        }
+      }
+    }
+    width: 50%;
+    padding: 30px;
+    box-sizing: border-box;
+    &-inner {
+      h2 {
+        display: inline-block;
+        margin: 3px 0;
+        border-radius: 4px;
+        padding: 3px 10px;
+        font-size: 17px;
+        letter-spacing: 0.5px;
+        color: rgb(94, 94, 94);
+        border-left: 2px solid rgb(133, 189, 68);
+        border-right: 2px solid rgb(133, 189, 68);
+        font-weight: 400;
+      }
+      display: block;
+      font-family: Montserrat;
+      color: rgb(170, 170, 170);
+      width: 100%;
+      h4 {
+        border-top: 1px solid #ddd;
+        padding: 5px 0 0 0;
+      }
+      .sex, .target, .params, .activity {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        label {
+          display: inline;
+          width: 155px;
+          text-align: right;
+          cursor: pointer;
+        }
+        input {
+          display: none;
+          &:checked + label::before {
+            display: inline-block;
+            font-family: FontAwesome;
+            content: '\f058';
+            font-size: 17px;
+            margin: 0 5px;
+            color: rgb(150, 206, 66);
+          }
+        }
+      }
+      .params {
+        .step-input {
+          display: flex;
+          width: 160px;
+        }
+        input {
+          display: block;
+          margin: 0 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          color: grey;
+          text-align: center;
+          &::-webkit-inner-spin-button, 
+          &::-webkit-outer-spin-button {  
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
